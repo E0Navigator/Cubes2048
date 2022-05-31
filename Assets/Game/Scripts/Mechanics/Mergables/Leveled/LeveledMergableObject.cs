@@ -1,4 +1,4 @@
-﻿using Game.Mechanics.States;
+﻿using Game.Mechanics.Pools;
 using Zenject;
 
 namespace Game.Mechanics.Mergables.Leveled
@@ -7,6 +7,7 @@ namespace Game.Mechanics.Mergables.Leveled
     public class LeveledMergableObject : MergableObject<LeveledMergableObject>
     {
         public LeveledStateSystem<MergableState> StateSystem { get; private set; }
+        public PoolObject PoolObject { get; private set; }
 
         public override bool CanMerge(LeveledMergableObject mergable)
         {
@@ -14,9 +15,10 @@ namespace Game.Mechanics.Mergables.Leveled
         }
 
         [Inject]
-        public void Construct(LeveledStateSystem<MergableState> stateSystem)
+        public void Construct(LeveledStateSystem<MergableState> stateSystem, PoolObject poolObject)
         {
             StateSystem = stateSystem;
+            PoolObject = poolObject;
         }
 
     }

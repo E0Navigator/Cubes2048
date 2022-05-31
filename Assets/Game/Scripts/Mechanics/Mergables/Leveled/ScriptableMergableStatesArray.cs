@@ -1,5 +1,4 @@
 ﻿using Game.Data;
-using Game.Mechanics.States;
 using UnityEngine;
 
 namespace Game.Mechanics.Mergables.Leveled

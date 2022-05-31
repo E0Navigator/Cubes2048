@@ -17,7 +17,7 @@ namespace Game.Mechanics.Pools
 
         public virtual void Push()
         {
-            pool.Push(this);
+            pool?.Push(this);
             Deactivate();
         }
 

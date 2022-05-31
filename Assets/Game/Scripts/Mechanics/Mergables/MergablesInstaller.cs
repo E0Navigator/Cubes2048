@@ -1,10 +1,11 @@
-﻿
-using Game.Mechanics.Interactions;
-using Game.Mechanics.Mergables.Leveled;
-using Game.Mechanics.States;
-using Mechanics.ObjectsLaunch;
+﻿using Game.Mechanics.Mergables.Leveled;
+using Game.Mechanics.ObjectsLaunch;
 using UnityEngine;
 using Zenject;
+using Game.Data;
+using System.Collections.Generic;
+using Game.Mechanics.Interactions;
+using Game.Mechanics.Scores;
 
 namespace Game.Mechanics.Mergables
 {
@@ -14,14 +15,10 @@ namespace Game.Mechanics.Mergables
         private ScriptableMergableStatesArray mergableStatesInstance;
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<IInteractionHandler<LeveledMergableObject, MergeInteractionData<LeveledMergableObject>>>().FromComponentInChildren();
+            Container.BindInterfacesAndSelfTo<IInteractionHandler<LeveledMergableObject, MergeInteractionData<LeveledMergableObject>>>().FromComponentsInChildren();
             Container.BindInterfacesAndSelfTo<IncreaseStateMergingService>().AsSingle();
-            Container.Bind<Renderer>().FromComponentInChildren();
-            Container.Bind<Rigidbody>().FromComponentSibling();
-            Container.BindInterfacesAndSelfTo<ScriptableMergableStatesArray>().FromInstance(mergableStatesInstance);
-            Container.Bind<LeveledStateSystem<MergableState>>().FromComponentSibling();
+            Container.BindInterfacesAndSelfTo<IEnumerable<MergableState>>().FromInstance(mergableStatesInstance);
+            Container.Bind<MergeLevelScoreProvider>().AsSingle().NonLazy();
         }
     }
-
-   
 }

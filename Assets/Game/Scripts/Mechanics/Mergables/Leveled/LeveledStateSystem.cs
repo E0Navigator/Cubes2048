@@ -3,19 +3,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using Zenject;
 
 namespace Game.Mechanics.Mergables.Leveled
 {
     public abstract class LeveledStateSystem<TState> : StateSystem<TState>
     {
-        private readonly IEnumerable<TState> _stateCollection;
+        private IEnumerable<TState> _stateCollection;
 
         public int StateId { get; private set; }
 
         public event EventHandler<int> OnStateOutOfRange;
 
-        protected LeveledStateSystem(IEnumerable<TState> stateCollection)
+
+        [Inject]
+        public void Construct(IEnumerable<TState> stateCollection)
         {
             _stateCollection = stateCollection;
         }
@@ -31,6 +33,11 @@ namespace Game.Mechanics.Mergables.Leveled
             {
                 OnStateOutOfRange?.Invoke(this, StateId);
             }
+        }
+
+        public TState GetCurrentState()
+        {
+            return _stateCollection.ElementAt(StateId);
         }
 
         public void LevelUpState()

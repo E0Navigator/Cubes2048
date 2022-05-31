@@ -1,8 +1,9 @@
 using Game.Mechanics.Mergables;
 using Game.Mechanics.Pools;
-using Mechanics.ObjectsLaunch;
+using Game.Mechanics.ObjectsLaunch;
 using UnityEngine;
 using Zenject;
+using Game.Mechanics.Scores;
 
 namespace Game
 {
@@ -12,13 +13,18 @@ namespace Game
         private PoolManager poolManager;
 
         [SerializeField]
-        private ObjectsLaunchSystem objectsLauncher;
+        private LaunchObjectsSystem objectsLauncher;
+        [SerializeField]
+        private LaunchObjectsSpawn launchObjectsSpawn;
+        [SerializeField]
+        private ScoreSystem scoreSystem;
 
         public override void InstallBindings()
         {
             Container.Bind<PoolManager>().FromInstance(poolManager);
-            Container.Bind<ObjectsLaunchSystem>().FromInstance(objectsLauncher);
-
+            Container.Bind<LaunchObjectsSystem>().FromInstance(objectsLauncher);
+            Container.Bind<LaunchObjectsSpawn>().FromInstance(launchObjectsSpawn);
+            Container.Bind<ScoreSystem>().FromInstance(scoreSystem);
         }
     }
 }

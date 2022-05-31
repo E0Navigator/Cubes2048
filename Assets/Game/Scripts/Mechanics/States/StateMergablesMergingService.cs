@@ -27,6 +27,7 @@ namespace Game.Mechanics.States
             var mergeData = new StateMergablesMergeData
                 (selfMergable, mergable2, selfMergable, interactionData);
             OnMerged?.Invoke(this, mergeData);
+            mergable2.PoolObject.Push();
             return mergeData;
         }
     }

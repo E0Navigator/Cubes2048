@@ -14,13 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _states:
   - material: {fileID: 2100000, guid: efb84025c5f29444f98fe1541424a859, type: 2}
+    level: 0
   - material: {fileID: 2100000, guid: 4dcee263de6e3f4438dd65a05be981e0, type: 2}
+    level: 1
   - material: {fileID: 2100000, guid: f2cc639f0ccec7548a1fe1254ce5dcc9, type: 2}
+    level: 2
   - material: {fileID: 2100000, guid: 207f2e6a354a96d4bb2a9431a0ffeabc, type: 2}
+    level: 3
   - material: {fileID: 2100000, guid: ef083debb908b9843b7aa69a5d2ca4c5, type: 2}
+    level: 4
   - material: {fileID: 2100000, guid: 807ccdeae03879a4aaf9076609654c07, type: 2}
+    level: 5
   - material: {fileID: 2100000, guid: 06c8f7f7bfbf61b48ac6c89836a222f4, type: 2}
+    level: 6
   - material: {fileID: 2100000, guid: efac14f8afa281c4bbd943cdc43156fa, type: 2}
+    level: 7
   - material: {fileID: 2100000, guid: 788579638f2146f43918972bcc774146, type: 2}
+    level: 8
   - material: {fileID: 2100000, guid: d907837bc5753d34f850d8bb53f61df0, type: 2}
+    level: 9
   - material: {fileID: 2100000, guid: 2b02ac19ade6f6f42b54ab5df1a69eef, type: 2}
+    level: 10

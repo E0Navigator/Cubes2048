@@ -15,7 +15,7 @@ namespace Game.Data
 
         public IEnumerator<TItem> GetEnumerator()
         {
-            return _states.GetEnumerator() as IEnumerator<TItem>;
+            return _states.AsEnumerable<TItem>().GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
